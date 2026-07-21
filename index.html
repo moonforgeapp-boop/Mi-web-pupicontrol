@@ -28,7 +28,6 @@
             border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        /* Cabecera estilo periódico */
         header {
             text-align: center;
             border-bottom: 4px double var(--primary);
@@ -63,7 +62,6 @@
             color: #64748b;
             margin-bottom: 10px;
         }
-        /* Secciones y columnas tipo prensa */
         .article-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -95,7 +93,6 @@
             margin-top: 0;
             color: var(--accent);
         }
-        /* Galería de imágenes estilo reportaje fotográfico */
         .photo-essay {
             margin-bottom: 30px;
             border-bottom: 1px solid var(--border);
@@ -110,22 +107,25 @@
             padding-bottom: 5px;
             margin-bottom: 20px;
         }
+        /* Galería adaptada para capturas verticales */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            gap: 20px;
         }
         .photo-card {
             border: 1px solid var(--border);
-            padding: 8px;
-            background: #fff;
+            padding: 10px;
+            background: #f8fafc;
             text-align: center;
         }
         .photo-card img {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
+            height: 380px; /* Altura vertical para formato móvil */
+            object-fit: contain; /* Mantiene la captura completa sin recortarla */
+            background: #000; /* Fondo negro elegante si la captura es transparente */
             display: block;
+            border-radius: 4px;
         }
         .photo-caption {
             font-family: sans-serif;
@@ -133,7 +133,6 @@
             color: #64748b;
             margin-top: 8px;
         }
-        /* Pie de página tipo tiraje */
         .newspaper-footer {
             display: flex;
             justify-content: space-between;
@@ -145,8 +144,8 @@
             padding-top: 15px;
         }
         .splash-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             vertical-align: middle;
@@ -170,7 +169,6 @@
 
     <div class="newspaper-container">
         
-        <!-- Cabecera del periódico -->
         <header>
             <div class="newspaper-header-top">
                 <span>Edición Especial Digital</span>
@@ -181,34 +179,32 @@
             <div class="newspaper-subtitle">El diario independiente sobre la gestión, salud y bienestar animal</div>
         </header>
 
-        <!-- Artículo Principal -->
         <div class="article-grid">
             <div class="main-article">
                 <h2>Revolución en el cuidado de mascotas: Llega la plataforma definitiva para dueños organizados</h2>
                 <div class="columns-text">
                     <p>En un esfuerzo por simplificar la rutina diaria de los amantes de los animales, nace <strong>Pupicontrol</strong>, una aplicación integral diseñada para cubrir todas las necesidades del hogar y de nuestros fieles compañeros de cuatro patas de forma totalmente gratuita.</p>
-                    <p>La herramienta soluciona los problemas más comunes de logística doméstica permitiendo un estricto control de despensa: desde la gestión del pienso, los snacks y las bolsas higiénicas, hasta la supervisión de las fechas de reemplazo de los collares antiparasitarios.</p>
-                    <p>Asimismo, la aplicación incorpora herramientas de seguimiento biométrico para vigilar la evolución del peso de la mascota, junto con un sistema de geolocalización inteligente para ubicar de forma inmediata parques, centros veterinarios y tiendas de animales cercanas.</p>
+                    <p>La herramienta soluciona los problemas de logística doméstica permitiendo un control de despensa: gestión de pienso, snacks, bolsas higiénicas y collares antiparasitarios.</p>
+                    <p>Asimismo, incorpora seguimiento biométrico de peso y geolocalización inteligente para hallar parques, veterinarios y tiendas cercanas.</p>
                 </div>
             </div>
 
             <div class="sidebar-box">
                 <h3>Contacto Oficial</h3>
-                <p>¿Tienes consultas editoriales o soporte técnico?</p>
+                <p>¿Consultas o soporte técnico?</p>
                 <p><strong>Escríbenos a:</strong><br>moonforgeapp@gmail.com</p>
                 <hr style="border:0; border-top:1px solid var(--border); margin:15px 0;">
                 <h3 style="margin-top:0;">Política Legal</h3>
-                <p style="font-size: 0.85rem;">Pupicontrol respeta la privacidad de sus usuarios y no cede datos personales a terceros bajo ninguna circunstancia.</p>
+                <p style="font-size: 0.85rem;">Pupicontrol respeta la privacidad de sus usuarios y no cede datos personales a terceros.</p>
             </div>
         </div>
 
-        <!-- Reportaje Fotográfico con las 6 capturas -->
         <div class="photo-essay">
             <h3>Reportaje Gráfico: Así opera Pupicontrol</h3>
             <div class="photo-grid">
                 <div class="photo-card">
                     <img src="1.jpg" alt="Captura 1">
-                    <div class="photo-caption">Fig. 1: Panel de Control Principal</div>
+                    <div class="photo-caption">Fig. 1: Panel Principal</div>
                 </div>
                 <div class="photo-card">
                     <img src="2.jpg" alt="Captura 2">
@@ -216,11 +212,11 @@
                 </div>
                 <div class="photo-card">
                     <img src="3.jpg" alt="Captura 3">
-                    <div class="photo-caption">Fig. 3: Registro de Peso y Salud</div>
+                    <div class="photo-caption">Fig. 3: Registro de Peso</div>
                 </div>
                 <div class="photo-card">
                     <img src="4.jpg" alt="Captura 4">
-                    <div class="photo-caption">Fig. 4: Geolocalización de Parques</div>
+                    <div class="photo-caption">Fig. 4: Geolocalización</div>
                 </div>
                 <div class="photo-card">
                     <img src="5.jpg" alt="Captura 5">
@@ -233,10 +229,10 @@
             </div>
         </div>
 
-        <!-- Pie de página tipo tiraje de prensa -->
         <div class="newspaper-footer">
             <div>
-                <img src="splash.jpg" alt="Logo Splash" class="splash-icon">
+                <!-- Asegúrate de que el archivo se llame splash.jpg o cambia la extensión aquí si es splash.png -->
+                <img src="splash.jpg" alt="Logo Splash" class="splash-icon" onerror="this.src='splash.png'">
                 <span><strong>Pupicontrol</strong> — Todos los derechos reservados.</span>
             </div>
             <div>Publicación Digital Certificada</div>
