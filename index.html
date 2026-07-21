@@ -29,7 +29,6 @@
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
-        /* Icono de la app en grande arriba estilo logo de periódico */
         .app-logo {
             width: 90px;
             height: 90px;
@@ -60,16 +59,71 @@
             color: #2c2c2c;
             margin-top: 0;
             line-height: 1.3;
+            text-align: center;
         }
         .article-body {
             font-size: 1.1rem;
             line-height: 1.6;
             text-align: justify;
+            margin-bottom: 25px;
         }
         .article-body p {
             margin-bottom: 15px;
         }
-        /* Estilo para el botón de testers adaptado al tono periódico */
+
+        /* Estilo del Carrusel de Screenshots */
+        .carousel-container {
+            position: relative.
+            max-width: 100%;
+            margin: 20px auto;
+            border: 4px solid #1a1a1a;
+            background: #000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .carousel-slide {
+            display: none;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+        .carousel-caption {
+            background: #1a1a1a;
+            color: #fffdf9;
+            font-size: 0.85rem;
+            font-family: Arial, sans-serif;
+            padding: 5px;
+            text-align: center;
+            font-style: italic;
+        }
+        /* Botones del carrusel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .prev { left: 0; }
+        .next { right: 0; }
+
+        /* Botón de testers */
         .call-to-action {
             text-align: center;
             margin-top: 30px;
@@ -97,7 +151,7 @@
 
     <div class="newspaper-container">
         <header>
-            <!-- Logo de la app arriba -->
+            <!-- Asegúrate de que tu icono se llame icon.png en la misma carpeta -->
             <img src="icon.png" alt="Icono de Pupicontrol" class="app-logo">
             <div class="newspaper-name">Pupicontrol Noticias</div>
             <div class="newspaper-date">Edición Especial • Actualidad y Pruebas</div>
@@ -107,17 +161,58 @@
             <h1 class="headline">Convocatoria abierta: Únete a la fase de pruebas exclusiva</h1>
             
             <div class="article-body">
-                <p>La comunidad de desarrollo avanza a pasos agigantados y hoy nos complace anunciar el inicio de la fase de evaluadores para nuestra aplicación. Queremos ofrecer a nuestros lectores la oportunidad de formar parte de este proceso desde el primer día.</p>
-                <p>Tu colaboración es totalmente crucial para garantizar la estabilidad y el rendimiento óptimo de la plataforma antes de su apertura general al público.</p>
+                <p>La comunidad de desarrollo avanza y hoy anunciamos el inicio de la fase de evaluadores. Queremos ofrecer a nuestros lectores la oportunidad de echar un vistazo exclusivo al funcionamiento interno de la plataforma.</p>
+                <p>A continuación, puedes examinar una galería oficial con capturas en detalle de la interfaz actual de la aplicación:</p>
+            </div>
+
+            <!-- CARRUSEL DE SCREENSHOTS (1.jpg a 6.jpg) -->
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="1.jpg" alt="Captura 1 de Pupicontrol">
+                    <div class="carousel-caption">Figura 1: Vista principal de la aplicación.</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="2.jpg" alt="Captura 2 de Pupicontrol">
+                    <div class="carousel-caption">Figura 2: Panel de control y gestión.</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="3.jpg" alt="Captura 3 de Pupicontrol">
+                    <div class="carousel-caption">Figura 3: Opciones de configuración avanzadas.</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="4.jpg" alt="Captura 4 de Pupicontrol">
+                    <div class="carousel-caption">Figura 4: Historial y registros en tiempo real.</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="5.jpg" alt="Captura 5 de Pupicontrol">
+                    <div class="carousel-caption">Figura 5: Interfaz adaptada y menús.</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="6.jpg" alt="Captura 6 de Pupicontrol">
+                    <div class="carousel-caption">Figura 6: Pantalla de avisos y alertas.</div>
+                </div>
+
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
             </div>
 
             <div class="call-to-action">
-                <p><strong>¿Deseas participar activamente?</strong></p>
-                <!-- Enlace de prueba exclusiva -->
+                <p><strong>¿Deseas participar activamente como evaluador?</strong></p>
                 <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" class="btn-tester" target="_blank">Acceder a la Prueba Exclusiva</a>
             </div>
         </main>
     </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
