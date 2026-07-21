@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pupicontrol - Sitio Oficial</title>
+    <title>Pupicontrol - Gestión y Cuidado de Mascotas</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -19,72 +19,105 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+        }
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .container {
-            max-width: 600px;
-            width: 90%;
+            max-width: 900px;
+            margin: -40px auto 40px auto;
             background: var(--card-bg);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-        h1 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
         .section {
-            text-align: left;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         h2 {
-            font-size: 1.25rem;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-        p {
-            color: #475569;
-            margin: 0;
-        }
-        .badge {
-            display: inline-block;
-            background: #e0e7ff;
+            font-size: 1.5rem;
             color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+        p, ul {
+            color: #475569;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="badge">Sitio Oficial Verificado</div>
+
+    <header>
         <h1>Pupicontrol</h1>
-        <p class="subtitle">La solución definitiva para gestionar y controlar tus proyectos de forma inteligente.</p>
+        <p>Todo lo que tu mascota necesita, organizado en la palma de tu mano.</p>
+    </header>
+
+    <div class="container">
         
+        <!-- Quiénes somos y qué hacemos -->
         <div class="section">
-            <h2>Contacto</h2>
-            <p>¿Tienes dudas o necesitas soporte técnico? Escríbenos a: <strong>soporte@tudominio.com</strong></p>
+            <h2>Sobre Pupicontrol</h2>
+            <p>Somos la aplicación definitiva diseñada para gestionar y simplificar la vida de tus mascotas. Con <strong>Pupicontrol</strong> tienes el control absoluto del bienestar de tu peludo de forma totalmente gratuita.</p>
+            <p>¿Qué puedes hacer con nuestra app?</p>
+            <ul>
+                <li><strong>Control de despensa:</strong> Gestiona el pienso, los snacks, las bolsas y el estado de su collar antiparasitario para que nunca falte de nada.</li>
+                <li><strong>Seguimiento de salud:</strong> Controla el peso de tu mascota a lo largo del tiempo de forma sencilla.</li>
+                <li><strong>Geolocalización:</strong> Encuentra rápidamente los parques, veterinarios y tiendas de animales más cercanos a tu ubicación.</li>
+                <li><strong>Funciones gratuitas:</strong> Disfruta de un montón de herramientas prácticas sin coste alguno.</li>
+            </ul>
         </div>
 
+        <!-- Contacto -->
+        <div class="section">
+            <h2>Contacto y Soporte</h2>
+            <p>¿Tienes dudas, sugerencias o necesitas ponerte en contacto con nosotros? Escríbenos directamente a nuestro correo oficial:</p>
+            <p><strong>moonforgeapp@gmail.com</strong></p>
+        </div>
+
+        <!-- Política de privacidad -->
         <div class="section">
             <h2>Política de Privacidad</h2>
-            <p>En Pupicontrol respetamos tu privacidad. Esta aplicación no recopila, almacena ni comparte ningún tipo de dato personal de los usuarios.</p>
+            <p>En Pupicontrol nos tomamos muy en serio la privacidad y la protección de los datos. Esta aplicación respeta la normativa vigente y no comparte información personal de los usuarios con terceros.</p>
         </div>
+
     </div>
+
+    <footer>
+        &copy; 2026 Pupicontrol. Todos los derechos reservados.
+    </footer>
+
 </body>
 </html>
