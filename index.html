@@ -3,241 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pupicontrol Gazette - El Diario Oficial de tu Mascota</title>
+    <title>Pupicontrol - Noticias y Pruebas</title>
     <style>
-        :root {
-            --primary: #1e293b;
-            --accent: #4f46e5;
-            --bg: #fdfbf7;
-            --text: #2d3748;
-            --border: #cbd5e1;
-        }
         body {
-            font-family: Georgia, serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
-        }
-        .newspaper-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             text-align: center;
-            border-bottom: 4px double var(--primary);
-            padding-bottom: 20px;
             margin-bottom: 30px;
         }
-        .newspaper-header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 8px;
+        /* Estilo para el icono/logo superior */
+        .app-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin-bottom: 15px;
+            object-fit: cover;
         }
-        .newspaper-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        h1 {
+            color: #2c3e50;
             margin: 10px 0;
-            color: var(--primary);
         }
-        .newspaper-subtitle {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 10px;
-        }
-        .article-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 30px;
-        }
-        .main-article h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-top: 0;
-            line-height: 1.2;
-        }
-        .columns-text {
-            column-count: 2;
-            column-gap: 20px;
-            font-size: 0.95rem;
-            text-align: justify;
-        }
-        .sidebar-box {
-            background: #f8fafc;
-            border-left: 3px solid var(--accent);
-            padding: 20px;
-            font-family: sans-serif;
-            font-size: 0.9rem;
-        }
-        .sidebar-box h3 {
-            margin-top: 0;
-            color: var(--accent);
-        }
-        .photo-essay {
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 30px;
-        }
-        .photo-essay h3 {
-            font-family: sans-serif;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 5px;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
             margin-bottom: 20px;
         }
-        /* Galería adaptada para capturas verticales */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .photo-card {
-            border: 1px solid var(--border);
-            padding: 10px;
-            background: #f8fafc;
-            text-align: center;
-        }
-        .photo-card img {
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
             width: 100%;
-            height: 380px; /* Altura vertical para formato móvil */
-            object-fit: contain; /* Mantiene la captura completa sin recortarla */
-            background: #000; /* Fondo negro elegante si la captura es transparente */
-            display: block;
-            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .photo-caption {
-            font-family: sans-serif;
-            font-size: 0.75rem;
-            color: #64748b;
-            margin-top: 8px;
+        /* Estilo para el botón de testers */
+        .btn-tester {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
         }
-        .newspaper-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: sans-serif;
-            font-size: 0.85rem;
-            color: #64748b;
-            border-top: 2px solid var(--primary);
-            padding-top: 15px;
-        }
-        .splash-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            vertical-align: middle;
-            margin-right: 10px;
-            border: 1px solid var(--border);
-        }
-        @media (max-width: 768px) {
-            .article-grid {
-                grid-template-columns: 1fr;
-            }
-            .columns-text {
-                column-count: 1;
-            }
-            .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .btn-tester:hover {
+            background-color: #219653;
         }
     </style>
 </head>
 <body>
 
-    <div class="newspaper-container">
+    <header>
+        <!-- Logo de la app arriba -->
+        <img src="icon.png" alt="Icono de Pupicontrol" class="app-logo">
+        <h1>Pupicontrol Noticias</h1>
+        <div class="subtitle">Actualidad, novedades y acceso exclusivo para evaluadores</div>
+    </header>
+
+    <div class="card">
+        <h2>¡Ayúdanos a probar Pupicontrol!</h2>
+        <p>Forma parte de nuestra comunidad de evaluadores exclusivos. Tu ayuda es fundamental para poner a punto la aplicación antes de su lanzamiento oficial.</p>
+        <p>Haz clic en el siguiente enlace para unirte a la fase de pruebas y probar la app en exclusiva:</p>
         
-        <header>
-            <div class="newspaper-header-top">
-                <span>Edición Especial Digital</span>
-                <span>Martes, 21 de Julio de 2026</span>
-                <span>Acceso Gratuito</span>
-            </div>
-            <h1 class="newspaper-title">Pupicontrol Gazette</h1>
-            <div class="newspaper-subtitle">El diario independiente sobre la gestión, salud y bienestar animal</div>
-        </header>
-
-        <div class="article-grid">
-            <div class="main-article">
-                <h2>Revolución en el cuidado de mascotas: Llega la plataforma definitiva para dueños organizados</h2>
-                <div class="columns-text">
-                    <p>En un esfuerzo por simplificar la rutina diaria de los amantes de los animales, nace <strong>Pupicontrol</strong>, una aplicación integral diseñada para cubrir todas las necesidades del hogar y de nuestros fieles compañeros de cuatro patas de forma totalmente gratuita.</p>
-                    <p>La herramienta soluciona los problemas de logística doméstica permitiendo un control de despensa: gestión de pienso, snacks, bolsas higiénicas y collares antiparasitarios.</p>
-                    <p>Asimismo, incorpora seguimiento biométrico de peso y geolocalización inteligente para hallar parques, veterinarios y tiendas cercanas.</p>
-                </div>
-            </div>
-
-            <div class="sidebar-box">
-                <h3>Contacto Oficial</h3>
-                <p>¿Consultas o soporte técnico?</p>
-                <p><strong>Escríbenos a:</strong><br>moonforgeapp@gmail.com</p>
-                <hr style="border:0; border-top:1px solid var(--border); margin:15px 0;">
-                <h3 style="margin-top:0;">Política Legal</h3>
-                <p style="font-size: 0.85rem;">Pupicontrol respeta la privacidad de sus usuarios y no cede datos personales a terceros.</p>
-            </div>
-        </div>
-
-        <div class="photo-essay">
-            <h3>Reportaje Gráfico: Así opera Pupicontrol</h3>
-            <div class="photo-grid">
-                <div class="photo-card">
-                    <img src="1.jpg" alt="Captura 1">
-                    <div class="photo-caption">Fig. 1: Panel Principal</div>
-                </div>
-                <div class="photo-card">
-                    <img src="2.jpg" alt="Captura 2">
-                    <div class="photo-caption">Fig. 2: Despensa y Suministros</div>
-                </div>
-                <div class="photo-card">
-                    <img src="3.jpg" alt="Captura 3">
-                    <div class="photo-caption">Fig. 3: Registro de Peso</div>
-                </div>
-                <div class="photo-card">
-                    <img src="4.jpg" alt="Captura 4">
-                    <div class="photo-caption">Fig. 4: Geolocalización</div>
-                </div>
-                <div class="photo-card">
-                    <img src="5.jpg" alt="Captura 5">
-                    <div class="photo-caption">Fig. 5: Red de Veterinarios</div>
-                </div>
-                <div class="photo-card">
-                    <img src="6.jpg" alt="Captura 6">
-                    <div class="photo-caption">Fig. 6: Tiendas y Servicios</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="newspaper-footer">
-            <div>
-                <!-- Asegúrate de que el archivo se llame splash.jpg o cambia la extensión aquí si es splash.png -->
-                <img src="splash.jpg" alt="Logo Splash" class="splash-icon" onerror="this.src='splash.png'">
-                <span><strong>Pupicontrol</strong> — Todos los derechos reservados.</span>
-            </div>
-            <div>Publicación Digital Certificada</div>
-        </div>
-
+        <!-- Enlace para fomentar testers voluntarios -->
+        <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" class="btn-tester" target="_blank">Probar Pupicontrol en Exclusiva</a>
     </div>
 
 </body>
