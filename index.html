@@ -250,6 +250,28 @@
             border-radius: 6px;
         }
 
+        /* SECCIÓN DE NOTICIAS AUTOMÁTICAS */
+        .live-news-section {
+            margin: 40px 0;
+        }
+
+        .news-header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-divider {
+            margin: 32px 0;
+            border: none;
+            border-top: 1px dashed var(--border);
+        }
+
+        /* Sección de Llamada a la Acción (CTA) con QR */
         .cta-section {
             background: var(--primary-light);
             border: 1px solid rgba(79, 70, 229, 0.15);
@@ -309,7 +331,6 @@
             transform: translateY(0);
         }
 
-        /* Contenedor del código QR optimizado */
         .qr-container {
             background: #ffffff;
             padding: 12px;
@@ -419,6 +440,19 @@
                 <button class="dot" onclick="currentSlide(3)" aria-label="Ir a diapositiva 4"></button>
                 <button class="dot" onclick="currentSlide(4)" aria-label="Ir a diapositiva 5"></button>
                 <button class="dot" onclick="currentSlide(5)" aria-label="Ir a diapositiva 6"></button>
+            </div>
+
+            <!-- APARTADO DE NOTICIAS AUTOMÁTICAS -->
+            <div class="live-news-section">
+                <!-- Primer feed automático -->
+                <h3 class="news-header-title"><i class="fa-solid fa-rss" style="color: var(--primary);"></i> Actualidad del Sector Canino y Mascotas</h3>
+                <rssapp-carousel id="2aFbiGrRXwCEs4g4"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+
+                <hr class="news-divider">
+
+                <!-- Segundo feed automático -->
+                <h3 class="news-header-title"><i class="fa-solid fa-newspaper" style="color: var(--primary);"></i> Novedades y Marcas del Sector</h3>
+                <rssapp-carousel id="JqEtgplnIVYEVxW5"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
             </div>
 
             <div class="cta-section">
