@@ -250,6 +250,7 @@
             border-radius: 6px;
         }
 
+        /* Sección de Llamada a la Acción (CTA) con QR */
         .cta-section {
             background: var(--primary-light);
             border: 1px solid rgba(79, 70, 229, 0.15);
@@ -276,13 +277,21 @@
             margin-right: auto;
         }
 
+        .cta-content-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
         .btn-tester {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             background-color: var(--accent);
             color: white;
-            padding: 16px 32px;
+            padding: 16px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -299,6 +308,33 @@
 
         .btn-tester:active {
             transform: translateY(0);
+        }
+
+        /* Contenedor del código QR */
+        .qr-container {
+            background: #ffffff;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qr-image {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .qr-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 4px;
+            font-weight: 500;
         }
 
         .footer {
@@ -381,9 +417,17 @@
             <div class="cta-section">
                 <h3 class="cta-title"><i class="fa-solid fa-users-viewfinder" style="color: var(--primary); margin-right: 8px;"></i> ¿Quieres colaborar como tester voluntario?</h3>
                 <p class="cta-desc">Tu participación es fundamental para optimizar la experiencia, verificar funcionalidades y poner a punto la aplicación antes de su lanzamiento global.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" class="btn-tester" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-google-play"></i> Probar Pupicontrol en Exclusiva
-                </a>
+                
+                <!-- Botón CTA y Código QR lado a lado -->
+                <div class="cta-content-flex">
+                    <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" class="btn-tester" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-google-play"></i> Probar Pupicontrol en Exclusiva
+                    </a>
+                    <div class="qr-container" title="Escanea para descargar o probar en móvil">
+                        <img src="QR.jpg" alt="Código QR Google Play" class="qr-image">
+                        <span class="qr-label">Escanea con la cámara</span>
+                    </div>
+                </div>
             </div>
 
             <footer class="footer">
