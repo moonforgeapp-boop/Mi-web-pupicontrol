@@ -4,538 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pupicontrol — Fase de Pruebas y Novedades Exclusivas</title>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome para iconos modernos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             --primary: #4f46e5;
-            --primary-hover: #4338ca;
             --primary-light: #eef2ff;
             --accent: #10b981;
             --dark: #0f172a;
-            --slate: #334155;
             --muted: #64748b;
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
             --border: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-            --radius: 16px;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 24px 16px;
+            background: #f8fafc;
+            padding: 20px;
         }
 
         .landing-wrapper {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
             max-width: 800px;
-            width: 100%;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
             margin: auto;
-            position: relative;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         .hero-banner {
-            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-            padding: 40px 20px 60px;
-            text-align: center;
+            background: linear-gradient(135deg,#4f46e5,#3b82f6);
             color: white;
-            position: relative;
-        }
-
-        .app-logo-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
+            text-align: center;
+            padding: 40px;
         }
 
         .app-logo {
             width: 100px;
-            height: 100px;
-            border-radius: 22px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            object-fit: cover;
-            background-color: #fff;
-            border: 3px solid rgba(255,255,255,0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .app-logo:hover {
-            transform: scale(1.05);
-        }
-
-        .badge-edition {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .app-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            border-radius: 20px;
+            margin-bottom: 10px;
         }
 
         .content-body {
-            padding: 40px 48px;
-        }
-
-        @media (max-width: 640px) {
-            .content-body {
-                padding: 24px 20px;
-            }
+            padding: 30px;
         }
 
         .headline {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 20px;
-            letter-spacing: -0.3px;
-            line-height: 1.35;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
-        .article-text {
-            font-size: 1.05rem;
-            color: var(--slate);
-            margin-bottom: 16px;
-            line-height: 1.7;
-        }
-
-        .carousel-container {
-            position: relative;
+        .carousel img {
             width: 100%;
-            background: #0f172a;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            margin: 32px 0;
-            border: 1px solid var(--border);
+            border-radius: 10px;
         }
 
-        .carousel-track {
-            position: relative;
-            width: 100%;
-            height: 420px;
-        }
-
-        @media (max-width: 640px) {
-            .carousel-track {
-                height: 300px;
-            }
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            background: #000;
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
-            color: #fff;
-            padding: 16px 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            text-align: center;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.15);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background: rgba(15, 23, 42, 0.9);
-            transform: translateY(-50%) scale(1.08);
-        }
-
-        .carousel-btn.prev { left: 16px; }
-        .carousel-btn.next { right: 16px; }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 14px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #cbd5e1;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background-color: var(--primary);
-            width: 24px;
-            border-radius: 6px;
-        }
-
-        /* SECCIÓN DE NOTICIAS AUTOMÁTICAS */
-        .live-news-section {
-            margin: 40px 0;
-        }
-
-        .news-header-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .news-divider {
-            margin: 32px 0;
-            border: none;
-            border-top: 1px dashed var(--border);
-        }
-
-        /* Sección de Llamada a la Acción (CTA) con QR */
         .cta-section {
             background: var(--primary-light);
-            border: 1px solid rgba(79, 70, 229, 0.15);
-            border-radius: var(--radius);
-            padding: 32px;
+            padding: 30px;
             text-align: center;
-            margin-top: 40px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 15px;
+            margin-top: 30px;
         }
 
-        .cta-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .cta-desc {
-            font-size: 0.95rem;
-            color: var(--muted);
-            margin-bottom: 24px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-content-flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .btn-tester {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--accent);
-            color: white;
-            padding: 16px 28px;
-            border-radius: 50px;
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 14px 22px;
+            border-radius: 30px;
             text-decoration: none;
+            color: white;
             font-weight: 600;
-            font-size: 1.05rem;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
-            transition: all 0.25s ease;
         }
 
-        .btn-tester:hover {
-            background-color: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+        .btn-play {
+            background: var(--accent);
         }
 
-        .btn-tester:active {
-            transform: translateY(0);
+        .btn-youtube {
+            background: #ff0000;
         }
 
-        .qr-container {
-            background: #ffffff;
-            padding: 12px;
+        .youtube-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .youtube-section iframe {
+            width: 100%;
+            height: 300px;
             border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .qr-container:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-md);
-        }
-
-        .qr-image {
-            width: 110px;
-            height: 110px;
-            object-fit: contain;
-            border-radius: 4px;
-            display: block;
-            background: #ffffff;
-        }
-
-        .qr-label {
-            font-size: 0.75rem;
-            color: var(--muted);
-            margin-top: 6px;
-            font-weight: 600;
         }
 
         .footer {
             text-align: center;
-            padding: 24px 0 12px;
             font-size: 0.85rem;
-            color: var(--muted);
-            border-top: 1px solid var(--border);
             margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
         }
 
-        .footer span {
+        .footer a {
             color: var(--primary);
-            font-weight: 600;
+            text-decoration: none;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="landing-wrapper">
-        <header class="hero-banner">
-            <div class="app-logo-wrapper">
-                <img src="splash.png" alt="Icono de Pupicontrol" class="app-logo">
-            </div>
-            <div>
-                <span class="badge-edition">Edición Especial • Actualidad & Pruebas</span>
-                <h1 class="app-title">Pupicontrol</h1>
-            </div>
-        </header>
+<div class="landing-wrapper">
 
-        <main class="content-body">
-            <h2 class="headline">Convocatoria abierta: Únete a la fase de pruebas exclusiva</h2>
-            
-            <div class="article-text">
-                <p>La comunidad de desarrollo avanza a pasos agigantados y hoy anunciamos con entusiasmo el inicio de nuestra fase oficial de evaluadores. Queremos ofrecer a nuestros usuarios y colaboradores más cercanos la oportunidad de explorar en primicia el funcionamiento interno de la plataforma.</p>
-                <p>A continuación, puedes examinar la galería oficial con capturas en detalle que muestran el diseño y la fluidez de la interfaz actual de la aplicación:</p>
-            </div>
+    <header class="hero-banner">
+        <img src="splash.png" class="app-logo">
+        <h1>Pupicontrol</h1>
+        <p>Edición especial • Pruebas exclusivas</p>
+    </header>
 
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-slide active">
-                        <img src="1.jpg" alt="Vista principal de la aplicación">
-                        <div class="carousel-caption">Figura 1: Vista principal de la aplicación.</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="2.jpg" alt="Panel de control y gestión">
-                        <div class="carousel-caption">Figura 2: Panel de control y gestión.</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="3.jpg" alt="Opciones de configuración avanzadas">
-                        <div class="carousel-caption">Figura 3: Opciones de configuración avanzadas.</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="4.jpg" alt="Historial y registros en tiempo real">
-                        <div class="carousel-caption">Figura 4: Historial y registros en tiempo real.</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="5.jpg" alt="Interfaz adaptada y menús">
-                        <div class="carousel-caption">Figura 5: Interfaz adaptada y menús.</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="6.jpg" alt="Pantalla de avisos y alertas">
-                        <div class="carousel-caption">Figura 6: Pantalla de avisos y alertas.</div>
-                    </div>
-                </div>
+    <main class="content-body">
 
-                <button class="carousel-btn prev" onclick="moveSlide(-1)" aria-label="Anterior">&#10094;</button>
-                <button class="carousel-btn next" onclick="moveSlide(1)" aria-label="Siguiente">&#10095;</button>
-            </div>
+        <h2 class="headline">Únete a la fase de pruebas</h2>
+        <p>Explora la app antes de su lanzamiento oficial.</p>
 
-            <div class="carousel-dots" id="carouselDots">
-                <button class="dot active" onclick="currentSlide(0)" aria-label="Ir a diapositiva 1"></button>
-                <button class="dot" onclick="currentSlide(1)" aria-label="Ir a diapositiva 2"></button>
-                <button class="dot" onclick="currentSlide(2)" aria-label="Ir a diapositiva 3"></button>
-                <button class="dot" onclick="currentSlide(3)" aria-label="Ir a diapositiva 4"></button>
-                <button class="dot" onclick="currentSlide(4)" aria-label="Ir a diapositiva 5"></button>
-                <button class="dot" onclick="currentSlide(5)" aria-label="Ir a diapositiva 6"></button>
-            </div>
+        <div class="carousel">
+            <img src="1.jpg">
+        </div>
 
-            <!-- APARTADO DE NOTICIAS AUTOMÁTICAS -->
-            <div class="live-news-section">
-                <!-- Primer feed automático -->
-                <h3 class="news-header-title"><i class="fa-solid fa-rss" style="color: var(--primary);"></i> Actualidad del Sector Canino y Mascotas</h3>
-                <rssapp-carousel id="2aFbiGrRXwCEs4g4"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Participa como tester</h3>
 
-                <hr class="news-divider">
+            <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" 
+               class="btn btn-play" target="_blank">
+               <i class="fa-brands fa-google-play"></i> Probar App
+            </a>
 
-                <!-- Segundo feed automático -->
-                <h3 class="news-header-title"><i class="fa-solid fa-newspaper" style="color: var(--primary);"></i> Novedades y Marcas del Sector</h3>
-                <rssapp-carousel id="JqEtgplnIVYEVxW5"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
-            </div>
+            <a href="https://www.youtube.com/@PupiControl" 
+               class="btn btn-youtube" target="_blank">
+               <i class="fa-brands fa-youtube"></i> Canal YouTube
+            </a>
+        </div>
 
-            <div class="cta-section">
-                <h3 class="cta-title"><i class="fa-solid fa-users-viewfinder" style="color: var(--primary); margin-right: 8px;"></i> ¿Quieres colaborar como tester voluntario?</h3>
-                <p class="cta-desc">Tu participación es fundamental para optimizar la experiencia, verificar funcionalidades y poner a punto la aplicación antes de su lanzamiento global.</p>
-                
-                <div class="cta-content-flex">
-                    <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" class="btn-tester" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-google-play"></i> Probar Pupicontrol en Exclusiva
-                    </a>
-                    <div class="qr-container" title="Escanea con la cámara de tu móvil">
-                        <img src="QR.jpg" alt="Código QR Google Play" class="qr-image">
-                        <span class="qr-label"><i class="fa-solid fa-camera"></i> Escanea el QR</span>
-                    </div>
-                </div>
-            </div>
+        <!-- YouTube -->
+        <div class="youtube-section">
+            <h3>Guías en vídeo</h3>
 
-            <footer class="footer">
-                <p>&copy; 2026 <span>Pupicontrol Team</span>. Todos los derechos reservados. Diseñado para GitHub Pages.</p>
-            </footer>
-        </main>
-    </div>
+            <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=PupiControl"></iframe>
+        </div>
 
-    <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.dot');
-        let autoPlayTimer;
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Pupicontrol</p>
 
-        function updateCarousel(n) {
-            slides[slideIndex].classList.remove('active');
-            dots[slideIndex].classList.remove('active');
-            
-            slideIndex = (n + slides.length) % slides.length;
-            
-            slides[slideIndex].classList.add('active');
-            dots[slideIndex].classList.add('active');
-        }
+            <p>
+                <a href="https://sites.google.com/d/1lGjclx83k327klVsFj5UtXp0lv_i4RXv/p/1VAaqWkdM15VbWRinJOM21hkshco_QkpR/edit" target="_blank">
+                    Política de privacidad
+                </a>
+            </p>
+        </footer>
 
-        function moveSlide(direction) {
-            resetTimer();
-            updateCarousel(slideIndex + direction);
-        }
+    </main>
 
-        function currentSlide(n) {
-            resetTimer();
-            updateCarousel(n);
-        }
+</div>
 
-        function resetTimer() {
-            clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(() => {
-                updateCarousel(slideIndex + 1);
-            }, 6000);
-        }
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const track = document.getElementById('carouselTrack');
-
-        track.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, {passive: true});
-
-        track.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, {passive: true});
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                moveSlide(1); 
-            }
-            if (touchEndX > touchStartX + 50) {
-                moveSlide(-1); 
-            }
-        }
-
-        autoPlayTimer = setInterval(() => {
-            updateCarousel(slideIndex + 1);
-        }, 6000);
-    </script>
 </body>
 </html>
-
-
