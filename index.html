@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pupicontrol — Fase de Pruebas</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -14,6 +14,7 @@
 --accent:#10b981;
 --bg:#f8fafc;
 --card:#ffffff;
+--border:#e2e8f0;
 }
 
 body{
@@ -41,14 +42,10 @@ to{opacity:1;transform:translateY(0);}
 .hero img{
 width:100px;
 border-radius:20px;
+margin-bottom:10px;
 }
 
-/* CONTENIDO */
-.container{
-max-width:900px;
-margin:auto;
-}
-
+/* CARD */
 .card{
 background:var(--card);
 padding:30px;
@@ -92,23 +89,22 @@ transition:.4s;
 
 .btn:hover::after{opacity:1;}
 
-/* REVEAL SCROLL */
+/* REVEAL */
 .reveal{
 opacity:0;
 transform:translateY(40px);
 transition:.8s;
 }
-
 .reveal.active{
 opacity:1;
 transform:translateY(0);
 }
 
-/* YOUTUBE */
-iframe{
-width:100%;
-height:320px;
-border-radius:12px;
+/* NEWS */
+.news-title{
+font-size:1.2rem;
+font-weight:700;
+margin-bottom:15px;
 }
 
 /* FOOTER */
@@ -156,15 +152,33 @@ text-decoration:none;
 
 </div>
 
-<!-- YOUTUBE -->
+<!-- NOTICIAS -->
 <div class="card reveal">
-<h3>Guías en vídeo</h3>
-<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=PupiControl"></iframe>
+
+<div class="news-title">
+<i class="fa-solid fa-rss" style="color:var(--primary)"></i>
+Noticias del mundo canino
+</div>
+
+<rssapp-carousel id="2aFbiGrRXwCEs4g4"></rssapp-carousel>
+
+<hr style="margin:30px 0;border-top:1px dashed var(--border);">
+
+<div class="news-title">
+<i class="fa-solid fa-newspaper" style="color:var(--primary)"></i>
+Novedades del sector
+</div>
+
+<rssapp-carousel id="JqEtgplnIVYEVxW5"></rssapp-carousel>
+
+<script src="https://widget.rss.app/v1/carousel.js" async></script>
+
 </div>
 
 <!-- FOOTER -->
 <footer>
 <p>&copy; 2026 Pupicontrol</p>
+
 <p>
 <a href="https://sites.google.com/d/1lGjclx83k327klVsFj5UtXp0lv_i4RXv/p/1VAaqWkdM15VbWRinJOM21hkshco_QkpR/edit" target="_blank">
 Política de privacidad
@@ -176,7 +190,7 @@ Política de privacidad
 
 <script>
 
-/* SCROLL ANIMATION */
+/* SCROLL ANIMATIONS */
 function reveal(){
 const elements=document.querySelectorAll(".reveal");
 elements.forEach(el=>{
