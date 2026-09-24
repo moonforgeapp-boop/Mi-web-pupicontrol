@@ -5,119 +5,272 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pupicontrol — Fase de Pruebas</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-:root{
---primary:#4f46e5;
---accent:#10b981;
---bg:#f8fafc;
---card:#ffffff;
---border:#e2e8f0;
-}
+  :root{
+    --primary:#4338ca;
+    --primary-light:#6366f1;
+    --accent:#0ea472;
+    --ink:#0f172a;
+    --ink-soft:#475569;
+    --bg:#f4f6fb;
+    --card:#ffffff;
+    --border:#e6e9f2;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.04), 0 1px 1px rgba(15,23,42,.03);
+    --shadow-md: 0 10px 30px -12px rgba(30,41,99,.18);
+    --shadow-lg: 0 24px 60px -20px rgba(30,41,99,.28);
+    --radius: 20px;
+  }
 
-body{
-font-family:'Inter',sans-serif;
-background:var(--bg);
-margin:0;
-padding:20px;
-}
+  *{box-sizing:border-box;}
 
-/* HERO */
-.hero{
-background:linear-gradient(135deg,#4f46e5,#3b82f6);
-color:white;
-text-align:center;
-padding:60px 20px;
-border-radius:20px;
-animation:fadeDown 1s ease;
-}
+  body{
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.08), transparent 60%),
+      radial-gradient(1000px 500px at 100% 0%, rgba(14,164,114,.07), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    margin:0;
+    padding:24px 16px 60px;
+    -webkit-font-smoothing:antialiased;
+  }
 
-@keyframes fadeDown{
-from{opacity:0;transform:translateY(-40px);}
-to{opacity:1;transform:translateY(0);}
-}
+  .container{
+    max-width:760px;
+    margin:0 auto;
+  }
 
-.hero img{
-width:100px;
-border-radius:20px;
-margin-bottom:10px;
-}
+  /* HERO */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#3730a3 0%, #4338ca 45%, #2563eb 100%);
+    color:#fff;
+    text-align:center;
+    padding:64px 24px 52px;
+    border-radius:28px;
+    box-shadow:var(--shadow-lg);
+    animation:fadeDown .8s cubic-bezier(.16,1,.3,1);
+  }
 
-/* CARD */
-.card{
-background:var(--card);
-padding:30px;
-margin-top:20px;
-border-radius:16px;
-transition:.3s;
-}
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,.14) 0, transparent 35%),
+      radial-gradient(circle at 85% 75%, rgba(255,255,255,.10) 0, transparent 40%);
+    pointer-events:none;
+  }
 
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 20px 40px rgba(0,0,0,.1);
-}
+  @keyframes fadeDown{
+    from{opacity:0; transform:translateY(-28px);}
+    to{opacity:1; transform:translateY(0);}
+  }
 
-/* BOTONES */
-.btn{
-display:inline-block;
-padding:14px 24px;
-border-radius:30px;
-color:white;
-text-decoration:none;
-margin:10px;
-font-weight:600;
-position:relative;
-overflow:hidden;
-}
+  .hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);
+    color:#e0e7ff;
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:22px;
+    position:relative;
+    z-index:1;
+  }
 
-.btn-play{background:var(--accent);}
-.btn-youtube{background:#ff0000;}
+  .hero-badge span.dot{
+    width:6px;height:6px;border-radius:50%;
+    background:#34d399;
+    box-shadow:0 0 0 3px rgba(52,211,153,.25);
+  }
 
-.btn::after{
-content:"";
-position:absolute;
-width:200%;
-height:200%;
-background:radial-gradient(circle,rgba(255,255,255,.4)10%,transparent 40%);
-top:-50%;
-left:-50%;
-opacity:0;
-transition:.4s;
-}
+  .hero img{
+    width:88px;
+    border-radius:22px;
+    margin-bottom:18px;
+    box-shadow:0 12px 28px rgba(0,0,0,.28);
+    position:relative;
+    z-index:1;
+  }
 
-.btn:hover::after{opacity:1;}
+  .hero h1{
+    font-size:2.15rem;
+    font-weight:800;
+    letter-spacing:-.02em;
+    margin:0 0 8px;
+    position:relative;
+    z-index:1;
+  }
 
-/* REVEAL */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:.8s;
-}
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
+  .hero p{
+    font-size:1.02rem;
+    font-weight:400;
+    color:#dbe3ff;
+    margin:0;
+    position:relative;
+    z-index:1;
+  }
 
-/* NEWS */
-.news-title{
-font-size:1.2rem;
-font-weight:700;
-margin-bottom:15px;
-}
+  /* CARD */
+  .card{
+    background:var(--card);
+    padding:32px;
+    margin-top:22px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow-sm);
+    transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
+  }
 
-/* FOOTER */
-footer{
-text-align:center;
-margin-top:40px;
-font-size:.9rem;
-}
-footer a{
-color:var(--primary);
-text-decoration:none;
-}
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-md);
+  }
 
+  .card h2{
+    font-size:1.3rem;
+    font-weight:700;
+    letter-spacing:-.01em;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+
+  .card h3{
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:-.01em;
+    margin:0 0 18px;
+    color:var(--ink);
+  }
+
+  .card p{
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin:0;
+    font-size:.98rem;
+  }
+
+  /* BOTONES */
+  .btn-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 24px;
+    border-radius:14px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:.95rem;
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+
+  .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
+  }
+
+  .btn-play{background:linear-gradient(135deg,var(--accent),#0d9488);}
+  .btn-youtube{background:linear-gradient(135deg,#ef4444,#dc2626);}
+
+  .btn::after{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle, rgba(255,255,255,.35) 10%, transparent 40%);
+    top:-50%;
+    left:-50%;
+    opacity:0;
+    transition:opacity .4s ease;
+  }
+
+  .btn:hover::after{opacity:1;}
+
+  /* REVEAL */
+  .reveal{
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.active{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* NEWS */
+  .news-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+
+  .news-title i{
+    width:34px;
+    height:34px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:rgba(67,56,202,.08);
+    color:var(--primary);
+    font-size:.95rem;
+  }
+
+  .news-divider{
+    margin:32px 0;
+    border:none;
+    border-top:1px dashed var(--border);
+  }
+
+  /* FOOTER */
+  footer{
+    text-align:center;
+    margin-top:48px;
+    font-size:.85rem;
+    color:var(--ink-soft);
+  }
+
+  footer p{margin:6px 0;}
+
+  footer a{
+    color:var(--primary);
+    text-decoration:none;
+    font-weight:500;
+  }
+
+  footer a:hover{text-decoration:underline;}
+
+  @media (max-width:480px){
+    .hero{padding:52px 18px 42px;}
+    .hero h1{font-size:1.75rem;}
+    .card{padding:24px;}
+    .btn{width:100%; justify-content:center;}
+  }
 </style>
 </head>
 
@@ -125,86 +278,83 @@ text-decoration:none;
 
 <div class="container">
 
-<!-- HERO -->
-<div class="hero">
-<img src="splash.png">
-<h1>Pupicontrol</h1>
-<p>Fase de pruebas exclusiva</p>
-</div>
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-badge"><span class="dot"></span>Fase de pruebas activa</span>
+    <br>
+    <img src="splash.png" alt="Pupicontrol">
+    <h1>Pupicontrol</h1>
+    <p>Cuida a tu mascota, sin complicaciones</p>
+  </div>
 
-<!-- INTRO -->
-<div class="card reveal">
-<h2>Únete como tester</h2>
-<p>Explora la app antes del lanzamiento oficial.</p>
-</div>
+  <!-- INTRO -->
+  <div class="card reveal">
+    <h2>Únete como tester</h2>
+    <p>Explora la app antes del lanzamiento oficial y ayúdanos a perfeccionarla.</p>
+  </div>
 
-<!-- CTA -->
-<div class="card reveal">
-<h3>Empieza ahora</h3>
+  <!-- CTA -->
+  <div class="card reveal">
+    <h3>Empieza ahora</h3>
+    <div class="btn-row">
+      <a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" target="_blank" class="btn btn-play">
+        <i class="fa-brands fa-google-play"></i> Probar App
+      </a>
+      <a href="https://www.youtube.com/@PupiControl" target="_blank" class="btn btn-youtube">
+        <i class="fa-brands fa-youtube"></i> Canal YouTube
+      </a>
+    </div>
+  </div>
 
-<a href="https://play.google.com/store/apps/details?id=com.moonforgeapp" target="_blank" class="btn btn-play">
-<i class="fa-brands fa-google-play"></i> Probar App
-</a>
+  <!-- NOTICIAS -->
+  <div class="card reveal">
 
-<a href="https://www.youtube.com/@PupiControl" target="_blank" class="btn btn-youtube">
-<i class="fa-brands fa-youtube"></i> Canal YouTube
-</a>
+    <div class="news-title">
+      <i class="fa-solid fa-paw"></i>
+      Noticias del mundo canino
+    </div>
 
-</div>
+    <rssapp-carousel id="2aFbiGrRXwCEs4g4"></rssapp-carousel>
 
-<!-- NOTICIAS -->
-<div class="card reveal">
+    <hr class="news-divider">
 
-<div class="news-title">
-<i class="fa-solid fa-rss" style="color:var(--primary)"></i>
-Noticias del mundo canino
-</div>
+    <div class="news-title">
+      <i class="fa-solid fa-newspaper"></i>
+      Novedades del sector
+    </div>
 
-<rssapp-carousel id="2aFbiGrRXwCEs4g4"></rssapp-carousel>
+    <rssapp-carousel id="JqEtgplnIVYEVxW5"></rssapp-carousel>
 
-<hr style="margin:30px 0;border-top:1px dashed var(--border);">
+    <script src="https://widget.rss.app/v1/carousel.js" async></script>
 
-<div class="news-title">
-<i class="fa-solid fa-newspaper" style="color:var(--primary)"></i>
-Novedades del sector
-</div>
+  </div>
 
-<rssapp-carousel id="JqEtgplnIVYEVxW5"></rssapp-carousel>
-
-<script src="https://widget.rss.app/v1/carousel.js" async></script>
-
-</div>
-
-<!-- FOOTER -->
-<footer>
-<p>&copy; 2026 Pupicontrol</p>
-
-<p>
-<a href="https://sites.google.com/view/pupicontrol-privacy/inicio" target="_blank">
-Política de privacidad
-</a>
-</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Pupicontrol</p>
+    <p>
+      <a href="https://sites.google.com/view/pupicontrol-privacy/inicio" target="_blank">
+        Política de privacidad
+      </a>
+    </p>
+  </footer>
 
 </div>
 
 <script>
+  function reveal(){
+    const elements = document.querySelectorAll(".reveal");
+    elements.forEach(el=>{
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      if(elementTop < windowHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  }
 
-/* SCROLL ANIMATIONS */
-function reveal(){
-const elements=document.querySelectorAll(".reveal");
-elements.forEach(el=>{
-const windowHeight=window.innerHeight;
-const elementTop=el.getBoundingClientRect().top;
-if(elementTop<windowHeight-100){
-el.classList.add("active");
-}
-});
-}
-
-window.addEventListener("scroll",reveal);
-reveal();
-
+  window.addEventListener("scroll", reveal);
+  reveal();
 </script>
 
 </body>
